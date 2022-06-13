@@ -70,16 +70,17 @@ function displayTodoText () {
 }
 displayTodoText();
 
-// // When clearDayButton clicked empty strings are saved to local storage to erase todo data
-// function handleClearDayButton () {
-//     for (i = 0; i < textBlockArr.length; i++) {
+// When clearDayButton clicked empty strings are saved to local storage to erase todo data
+function handleClearDayButton () {
+    for (i = 0; i < textBlockArr.length; i++) {
 
-//     var localKey = 'todo' + i;
-//     // Saves an empty string to local storage to erase todo info
-//     localStorage.setItem(localKey,'');
-//     }
-//     displayTodoText();
-// }
+    var localKey = 'todo' + i;
+    // Saves an empty string to local storage to erase todo info
+    localStorage.setItem(localKey,'');
+    }
+    displayTodoText();
+}
 
-// var clearDayButton = document.getElementById('clearDayButton');
-// clearDayButton.addEventListener('click', clearDayButton);
+// Grabs cleardayButton and adds event listener to clear day text
+var clearDayButton = document.getElementById('clearDayButton');
+clearDayButton.addEventListener('click', handleClearDayButton);
