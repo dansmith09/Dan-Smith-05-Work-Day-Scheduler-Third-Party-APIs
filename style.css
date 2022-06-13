@@ -16,6 +16,7 @@ textarea {
   color: #000000;
   border-left: 1px solid black;
   padding: 10px;
+  text-align: center;
 }
 
 .jumbotron {
@@ -70,8 +71,12 @@ textarea {
   color: white;
 }
 
-.saveBtn i:hover {
-  font-size: 20px;
+.saveBtn i {
+  font-size: 50px;
+}
+
+.saveBtn:hover i {
+  font-size: 60px;
   transition: all 0.3s ease-in-out;
 }
 
@@ -112,11 +117,20 @@ textarea {
   width: 120px;
   height: 100%;
   border: 1px white solid;
+  transition: 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.saveBtn:active {
+.saveBtn:hover, #clearDayButton:hover {
+  background-color: #79e6ff;
+}
+
+.saveBtn:active, #clearDayButton:active {
   background-color: #128da8;
 }
+
 
 
 .container {
@@ -136,5 +150,25 @@ footer {
 #clearDayButton {
 margin: 20px;
 border-radius: 10px;
-padding: 10px;
+width: 150px;
+background-color: #06aed5;
+color: white;
+transition: 0.3s;
+}
+
+#clearDayButton:hover {
+  font-size: larger;
+}
+
+#comment {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  justify-content: center;
+  padding: 10px;
+  background-color: #79e6ff;
+  opacity: 0;
+  transition: 0.5s;
 }

@@ -59,6 +59,7 @@ function handleSaveButton () {
     var localValue = textBlockArr[i].value
     // Gets todo list from text blocks and saves to local storage
     localStorage.setItem(localKey,localValue);
+    showAfterUpdate();
     }
 }
 
@@ -79,8 +80,30 @@ function handleClearDayButton () {
     localStorage.setItem(localKey,'');
     }
     displayTodoText();
+    showAfterClear();
 }
 
 // Grabs cleardayButton and adds event listener to clear day text
 var clearDayButton = document.getElementById('clearDayButton');
 clearDayButton.addEventListener('click', handleClearDayButton);
+
+
+
+// Extra comment section
+var commentElement = document.getElementById('comment');
+commentElement.addEventListener('click',hide);
+
+function showAfterClear() {
+    commentElement.innerHTML = 'All activities cleared';
+    commentElement.style.opacity = 1;
+}
+
+function showAfterUpdate() {
+    commentElement.innerHTML = 'Schedule Updated';
+    commentElement.style.opacity = 1;
+}
+
+function hide() {
+    commentElement.style.opacity = 0;
+}
+
