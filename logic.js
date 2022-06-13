@@ -51,12 +51,46 @@ saveButton9am.addEventListener('click', saveText)
 function saveText() {
     var todo = textBlock9am.value;
     /// save to local storage
+    localStorage.setItem('toDo9am', todo);
     /// print from local storage
-    alert(todo);
+    textBlock9am.value = localStorage.getItem('toDo9am');
 }
+
+textBlock9am.value = localStorage.getItem('toDo9am');
+
+
+saveButtons = document.getElementsByClassName("saveBtn");
+
+for (i = 0; i < saveButtons.length; i++) {
+    saveButtons[i].addEventListener('click',function (event) {
+        event.preventDefault();
+        var todo = textBlockArr[i].value;
+        var time = timeBlockArr[i];
+
+        localStorage.setItem('toDo' + time, todo)
+
+        textBlockArr[i].value = localStorage.getItem('toDo' + time)
+    })
+} 
+
+
+
+
 
 /// content editable takes value when save button clicked saves to local storage and displays
 /// maybe if statement that says if local storage is null then be empty however if 
 // / something is there show the ting
 
-// Trying to store a string in 
+// Trying to store a string in the textBlock
+
+textBlock4pm.value = 'Yooooo';
+
+
+// btns = document.getElementsByClassName("saveBtn");
+// for (var i = 0; i < btns.length; i++) {
+//     btns[i].addEventListener("click", function (event) {
+//         event.preventDefault()
+//         var textarea = document.querySelector("textarea").value;
+//         localStorage.setItem("textarea", textarea)
+//     });
+// }
