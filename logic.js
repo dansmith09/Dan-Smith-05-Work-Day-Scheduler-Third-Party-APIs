@@ -44,47 +44,42 @@ for (i = 0; i < timeBlockArr.length; i++) {
     }
 }
 
-// // WORKS
-// var saveButton9am = document.getElementById('saveButton9am');
-// saveButton9am.addEventListener('click', saveText)
-
-// function saveText() {
-//     var todo = textBlock9am.value;
-//     /// save to local storage
-//     localStorage.setItem('toDo9am', todo);
-// }
-
-// /// print from local storage
-// textBlock9am.value = localStorage.getItem('toDo9am');
-
-
 saveButtons = document.getElementsByClassName("saveBtn"); // Grabs all save buttons
-var saveButtonsArr = []; // Populates with all save button arrays
 
-// Loops through save buttons and adds event listener and adds buttons to array
+// Loops through save buttons and adds event listener and adds buttons to array and adds save
 for (i = 0; i < saveButtons.length; i++) {
-    saveButtons[i].addEventListener('click',handleSaveButton)
-    saveButtonsArr.push(document.getElementById('save-button-' + i));
+    saveButtons[i].addEventListener('click',handleSaveButton);
 }
 
 // When save button clicked makes key in local storage and populates with the text Block's value
-function handleSaveButton (event) {
-    event.preventDefault();
-    for (i = 0; i < saveButtonsArr.length; i++) {
+function handleSaveButton () {
+    for (i = 0; i < textBlockArr.length; i++) {
 
     var localKey = 'todo' + i;
     var localValue = textBlockArr[i].value
-    // Gets todo list content
+    // Gets todo list from text blocks and saves to local storage
     localStorage.setItem(localKey,localValue);
     }
 }
 
-for (i = 0; i < textBlockArr.length; i++) {
-    textBlockArr[i].value = localStorage.getItem('todo' + i);
+// Displays all text block items from local storage
+function displayTodoText () {
+    for (i = 0; i < textBlockArr.length; i++) {
+        textBlockArr[i].value = localStorage.getItem('todo' + i);
+    }
 }
+displayTodoText();
 
-/// content editable takes value when save button clicked saves to local storage and displays
-/// maybe if statement that says if local storage is null then be empty however if 
-// / something is there show the ting
+// // When clearDayButton clicked empty strings are saved to local storage to erase todo data
+// function handleClearDayButton () {
+//     for (i = 0; i < textBlockArr.length; i++) {
 
+//     var localKey = 'todo' + i;
+//     // Saves an empty string to local storage to erase todo info
+//     localStorage.setItem(localKey,'');
+//     }
+//     displayTodoText();
+// }
 
+// var clearDayButton = document.getElementById('clearDayButton');
+// clearDayButton.addEventListener('click', clearDayButton);
